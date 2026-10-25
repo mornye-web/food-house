@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Thông tin tài khoản Food House"><title>Tài khoản - Food House</title><link rel="stylesheet" href="../css/style.css"></head>
+<body>
+<header class="header"><a href="index.html" class="logo">🍽️ Food House</a><button class="menu-btn" id="menu-btn" aria-label="Mở menu" aria-expanded="false">☰</button><nav id="menu"><a href="index.html">Trang chủ</a><a href="menu.html">Thực đơn</a><a href="aboutus.html">Giới thiệu</a><a href="booking.html">Đặt bàn</a><a href="chatbot.html">Trợ lý ẩm thực</a><a href="cart.html">Giỏ hàng</a><a href="history.html">Lịch sử đặt bàn</a><a href="account.html">Tài khoản</a></nav></header>
+<main class="section"><h1 class="text-center">Tài khoản của bạn</h1><p class="section-intro text-center">Quản lý thông tin đăng nhập trên trình duyệt này.</p>
+<section id="account-signed-in" class="form-container" hidden><p><strong>Tên người dùng:</strong> <span data-user-name></span></p><p><strong>Email:</strong> <span data-user-email></span></p><p><strong>Vai trò:</strong> <span id="account-role"></span></p><div class="actions-row"><a class="btn" href="history.html">Xem lịch sử</a><a class="btn btn-secondary" href="admin.html" id="account-admin-link" style="color:var(--dark)" hidden>Quản lý món ăn</a><button class="btn" type="button" id="logout-btn">Đăng xuất</button></div><p class="notice">Thông tin tài khoản của phiên bản bài tập được lưu trong bộ nhớ trình duyệt, chưa có máy chủ xác thực.</p></section>
+<section id="account-signed-out" class="form-container"><p>Bạn chưa đăng nhập vào Food House.</p><div class="actions-row"><a class="btn" href="login.html">Đăng nhập</a><a class="btn btn-secondary" href="register.html" style="color:var(--dark)">Tạo tài khoản</a></div></section></main>
+<footer class="footer"><div class="footer-inner"><div><strong>🍽️ Food House</strong><p>Hương vị ngon cho mọi khoảnh khắc.</p></div><div><p>Giờ tham khảo: 09:00–22:00</p><p>Email: foodhouse@example.com</p></div><p>© 2026 Food House. Bài tập dự án SPCK.</p></div></footer>
+<script src="../script/main.js"></script><script>
+const current = (() => { try { return JSON.parse(localStorage.getItem('currentUser') || 'null'); } catch { return null; } })();
+const signedIn = document.getElementById('account-signed-in');
+const signedOut = document.getElementById('account-signed-out');
+if (current) { signedIn.hidden = false; signedOut.hidden = true; document.getElementById('account-role').textContent = current.role === 'admin' ? 'Quản trị viên (demo)' : 'Người dùng'; document.getElementById('account-admin-link').hidden = current.role !== 'admin'; }
+</script></body></html>

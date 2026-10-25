@@ -1,0 +1,8 @@
+{
+  "note": "Food House dùng API thật TheMealDB cho dữ liệu công thức. Tài khoản, đặt bàn và món tự quản lý được lưu trong Local Storage.",
+  "api": "https://www.themealdb.com/api/json/v1/1/",
+  "endpoints": {
+    "search": "search.php?s=chicken",
+    "detail": "lookup.php?i=52772"
+  }
+}
